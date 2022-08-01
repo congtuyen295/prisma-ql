@@ -5,6 +5,7 @@ const User = objectType({
   definition(t) {
     t.nonNull.int('id');
     t.string('name');
+    t.string('role')
     t.nonNull.string('email');
     t.nonNull.list.nonNull.field('posts', {
       type: 'Post',

@@ -1,14 +1,14 @@
-const { intArg, nonNull, objectType, stringArg, arg } = require('nexus');
+const { intArg, nonNull, objectType, stringArg, arg } = require("nexus");
 
 const prismaMutation = objectType({
-  name: 'Mutation',
+  name: "Mutation",
   definition(t) {
-    t.nonNull.field('signupUser', {
-      type: 'User',
+    t.nonNull.field("signupUser", {
+      type: "User",
       args: {
         data: nonNull(
           arg({
-            type: 'UserCreateInput',
+            type: "UserCreateInput",
           })
         ),
       },
@@ -20,6 +20,7 @@ const prismaMutation = objectType({
           data: {
             name: args.data.name,
             email: args.data.email,
+            role: args.data.role,
             posts: {
               create: postData,
             },
@@ -28,12 +29,12 @@ const prismaMutation = objectType({
       },
     });
 
-    t.field('createDraft', {
-      type: 'Post',
+    t.field("createDraft", {
+      type: "Post",
       args: {
         data: nonNull(
           arg({
-            type: 'PostCreateInput',
+            type: "PostCreateInput",
           })
         ),
         authorEmail: nonNull(stringArg()),
@@ -51,8 +52,8 @@ const prismaMutation = objectType({
       },
     });
 
-    t.field('togglePublishPost', {
-      type: 'Post',
+    t.field("togglePublishPost", {
+      type: "Post",
       args: {
         id: nonNull(intArg()),
       },
@@ -76,8 +77,8 @@ const prismaMutation = objectType({
       },
     });
 
-    t.field('incrementPostViewCount', {
-      type: 'Post',
+    t.field("incrementPostViewCount", {
+      type: "Post",
       args: {
         id: nonNull(intArg()),
       },
@@ -92,9 +93,8 @@ const prismaMutation = objectType({
         });
       },
     });
-
-    t.field('deletePost', {
-      type: 'Post',
+    t.field("deletePost", {
+      type: "Post",
       args: {
         id: nonNull(intArg()),
       },

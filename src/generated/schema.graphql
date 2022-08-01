@@ -49,10 +49,12 @@ type User {
   id: Int!
   name: String
   posts: [Post!]!
+  role: String
 }
 
 input UserCreateInput {
   email: String!
   name: String
   posts: [PostCreateInput!]
+  role: String
 }

@@ -40,6 +40,7 @@ export interface NexusGenInputs {
     email: string; // String!
     name?: string | null; // String
     posts?: NexusGenInputs['PostCreateInput'][] | null; // [PostCreateInput!]
+    role?: string | null; // String
   }
 }
 
@@ -72,6 +73,7 @@ export interface NexusGenObjects {
     email: string; // String!
     id: number; // Int!
     name?: string | null; // String
+    role?: string | null; // String
   }
 }
 
@@ -111,6 +113,7 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     name: string | null; // String
     posts: NexusGenRootTypes['Post'][]; // [Post!]!
+    role: string | null; // String
   }
 }
 
@@ -140,6 +143,7 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
     name: 'String'
     posts: 'Post'
+    role: 'String'
   }
 }
 

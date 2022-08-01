@@ -4,6 +4,7 @@ const UserCreateInput = inputObjectType({
   definition(t) {
     t.nonNull.string('email');
     t.string('name');
+    t.string('role');
     t.list.nonNull.field('posts', { type: 'PostCreateInput' });
   },
 });
