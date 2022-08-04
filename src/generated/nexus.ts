@@ -106,7 +106,10 @@ export interface NexusGenFieldTypes {
     viewCount: number; // Int!
   }
   Query: { // field return type
-    ok: boolean; // Boolean!
+    allUsers: NexusGenRootTypes['User'][]; // [User!]!
+    feed: NexusGenRootTypes['Post'][]; // [Post!]!
+    postById: NexusGenRootTypes['Post'] | null; // Post
+    user: NexusGenRootTypes['Post'] | null; // Post
   }
   User: { // field return type
     email: string; // String!
@@ -136,7 +139,10 @@ export interface NexusGenFieldTypeNames {
     viewCount: 'Int'
   }
   Query: { // field return type name
-    ok: 'Boolean'
+    allUsers: 'User'
+    feed: 'Post'
+    postById: 'Post'
+    user: 'Post'
   }
   User: { // field return type name
     email: 'String'
@@ -164,6 +170,17 @@ export interface NexusGenArgTypes {
     }
     togglePublishPost: { // args
       id: number; // Int!
+    }
+  }
+  Query: {
+    feed: { // args
+      orderBy?: NexusGenInputs['PostOrderByUpdatedAtInput'] | null; // PostOrderByUpdatedAtInput
+      searchString?: string | null; // String
+      skip?: number | null; // Int
+      take?: number | null; // Int
+    }
+    postById: { // args
+      id?: number | null; // Int
     }
   }
 }

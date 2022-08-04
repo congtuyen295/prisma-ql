@@ -36,7 +36,10 @@ input PostOrderByUpdatedAtInput {
 }
 
 type Query {
-  ok: Boolean!
+  allUsers: [User!]!
+  feed(orderBy: PostOrderByUpdatedAtInput, searchString: String, skip: Int, take: Int): [Post!]!
+  postById(id: Int): Post
+  user: Post
 }
 
 enum SortOrder {
